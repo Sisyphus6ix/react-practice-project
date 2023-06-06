@@ -4,7 +4,11 @@ const timer = () => {
     return (
         <div>
             <div className="timerDisplay">
-                <h1>00:00:00</h1>
+                <h1>
+                    <span className="hours">00</span>
+                    <span className="minutes">:00</span>
+                    <span className="seconds">:00</span>
+                </h1>
             </div>
             <button id="startBtn">Start</button>
             <button id="stopBtn">Stop</button>
