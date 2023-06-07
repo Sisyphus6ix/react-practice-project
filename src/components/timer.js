@@ -5,6 +5,10 @@ let minutes = 0
 let hours = 0
 let timerLogic
 
+// let secondsDisplay = document.getElementsByClassName('seconds')[0]
+// let minutesDisplay = document.getElementsByClassName('minutes')[0]
+// let hoursDisplay = document.getElementsByClassName('hours')[0]
+
 const timer = () => {
     return (
         <div>
@@ -17,12 +21,13 @@ const timer = () => {
             </div>
             <button onClick={startTimer} id="startBtn">Start</button>
             <button onClick={stopTimer} id="stopBtn">Stop</button>
+            <button onClick={resetTimer} id="resetBtn">Reset</button>
         </div>
     )
 }
 
 const startTimer = () => {
-    const secondsDisplay = document.getElementsByClassName('seconds')[0]
+    let secondsDisplay = document.getElementsByClassName('seconds')[0]
     timerLogic = setInterval(
         function(){
             seconds++
@@ -35,6 +40,20 @@ const startTimer = () => {
 
 const stopTimer = () => {
     clearInterval(timerLogic)
+}
+
+const resetTimer = () => {
+    let secondsDisplay = document.getElementsByClassName('seconds')[0]
+    let minutesDisplay = document.getElementsByClassName('minutes')[0]
+    let hoursDisplay = document.getElementsByClassName('hours')[0]
+    
+    seconds = 0
+    minutes = 0
+    hours = 0
+
+    secondsDisplay.innerText = `0${seconds}`
+    minutesDisplay.innerText = `0${minutes}`
+    hoursDisplay.innerText = `0${hours}`
 }
 
 export default timer
