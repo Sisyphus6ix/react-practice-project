@@ -3,6 +3,7 @@ import React from "react";
 let seconds = 0
 let minutes = 0
 let hours = 0
+let timerLogic
 
 const timer = () => {
     return (
@@ -21,21 +22,19 @@ const timer = () => {
 }
 
 const startTimer = () => {
-    // console.log(e.target)
     const secondsDisplay = document.getElementsByClassName('seconds')[0]
-    // console.log(secondsDisplay)
-    setInterval(function(){
-        seconds++
-        if (seconds < 10) {
-            seconds = `0${seconds}`
-        }
-        secondsDisplay.innerText = seconds
+    timerLogic = setInterval(
+        function(){
+            seconds++
+            if (seconds < 10) {
+                seconds = `0${seconds}`
+            }
+            secondsDisplay.innerText = seconds
     }, 1000)
 }
 
 const stopTimer = () => {
-    console.log('stop button pressed')
-    clearInterval()
+    clearInterval(timerLogic)
 }
 
 export default timer
