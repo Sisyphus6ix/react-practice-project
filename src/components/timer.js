@@ -1,13 +1,13 @@
 import React from "react";
 
-let seconds = 0
-let minutes = 0
+let seconds = 58
+let minutes = 58
 let hours = 0
 let timerLogic
 
-// let secondsDisplay = document.getElementsByClassName('seconds')[0]
-// let minutesDisplay = document.getElementsByClassName('minutes')[0]
-// let hoursDisplay = document.getElementsByClassName('hours')[0]
+let secondsDisplay = document.getElementsByClassName('seconds')[0]
+let minutesDisplay = document.getElementsByClassName('minutes')[0]
+let hoursDisplay = document.getElementsByClassName('hours')[0]
 
 const timer = () => {
     return (
@@ -27,14 +27,11 @@ const timer = () => {
 }
 
 const startTimer = () => {
-    let secondsDisplay = document.getElementsByClassName('seconds')[0]
     timerLogic = setInterval(
         function(){
-            seconds++
-            if (seconds < 10) {
-                seconds = `0${seconds}`
-            }
-            secondsDisplay.innerText = seconds
+        secondsLogic()
+        minutesLogic()
+        hoursLogic()
     }, 1000)
 }
 
@@ -43,10 +40,6 @@ const stopTimer = () => {
 }
 
 const resetTimer = () => {
-    let secondsDisplay = document.getElementsByClassName('seconds')[0]
-    let minutesDisplay = document.getElementsByClassName('minutes')[0]
-    let hoursDisplay = document.getElementsByClassName('hours')[0]
-    
     seconds = 0
     minutes = 0
     hours = 0
@@ -54,6 +47,39 @@ const resetTimer = () => {
     secondsDisplay.innerText = `0${seconds}`
     minutesDisplay.innerText = `0${minutes}`
     hoursDisplay.innerText = `0${hours}`
+}
+
+const secondsLogic = () => {
+    secondsDisplay = document.getElementsByClassName('seconds')[0]
+    
+    seconds++
+    if (seconds < 10) {
+        seconds = `0${seconds}`
+    }
+    secondsDisplay.innerText = seconds
+}
+
+const minutesLogic = () => {
+    minutesDisplay = document.getElementsByClassName('minutes')[0]
+
+    if (seconds > 59) {
+        minutes++
+        seconds = '00'
+    }
+    minutesDisplay.innerText = minutes
+    secondsDisplay.innerText = seconds
+}
+
+const hoursLogic = () => {
+    hoursDisplay = document.getElementsByClassName('hours')[0]
+
+    if (minutes > 59){
+        hours++
+        minutes = '00'
+    }
+
+    hours.innerText = hours
+    minutesDisplay.innerText = minutes
 }
 
 export default timer
