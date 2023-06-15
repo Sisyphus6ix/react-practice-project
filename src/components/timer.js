@@ -1,13 +1,9 @@
 import React from "react";
 
 let seconds = 58
-let minutes = 58
+let minutes = 59
 let hours = 0
 let timerLogic
-
-let secondsDisplay = document.getElementsByClassName('seconds')[0]
-let minutesDisplay = document.getElementsByClassName('minutes')[0]
-let hoursDisplay = document.getElementsByClassName('hours')[0]
 
 const timer = () => {
     return (
@@ -40,6 +36,10 @@ const stopTimer = () => {
 }
 
 const resetTimer = () => {
+    let secondsDisplay = document.getElementsByClassName('seconds')[0]
+    let minutesDisplay = document.getElementsByClassName('minutes')[0]
+    let hoursDisplay = document.getElementsByClassName('hours')[0]
+
     seconds = 0
     minutes = 0
     hours = 0
@@ -50,8 +50,7 @@ const resetTimer = () => {
 }
 
 const secondsLogic = () => {
-    secondsDisplay = document.getElementsByClassName('seconds')[0]
-    
+   let secondsDisplay = document.getElementsByClassName('seconds')[0]
     seconds++
     if (seconds < 10) {
         seconds = `0${seconds}`
@@ -60,25 +59,32 @@ const secondsLogic = () => {
 }
 
 const minutesLogic = () => {
-    minutesDisplay = document.getElementsByClassName('minutes')[0]
+    let secondsDisplay = document.getElementsByClassName('seconds')[0]
+    let minutesDisplay = document.getElementsByClassName('minutes')[0]
 
     if (seconds > 59) {
         minutes++
         seconds = '00'
     }
+    
     minutesDisplay.innerText = minutes
     secondsDisplay.innerText = seconds
 }
 
 const hoursLogic = () => {
-    hoursDisplay = document.getElementsByClassName('hours')[0]
+    let minutesDisplay = document.getElementsByClassName('minutes')[0]
+    let hoursDisplay = document.getElementsByClassName('hours')[0]
 
     if (minutes > 59){
         hours++
         minutes = '00'
     }
+    
+    // if (hours < 10) {
+    //     hours = `0${hours}`
+    // }
 
-    hours.innerText = hours
+    hoursDisplay.innerText = hours
     minutesDisplay.innerText = minutes
 }
 
