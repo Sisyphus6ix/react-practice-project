@@ -1,7 +1,7 @@
 import React from "react";
 
-let seconds = 58
-let minutes = 59
+let seconds = 0
+let minutes = 0
 let hours = 0
 let timerLogic
 
@@ -77,15 +77,14 @@ const hoursLogic = () => {
 
     if (minutes > 59){
         hours++
-        minutes = '00'
+        minutes = '0'
     }
-    
-    // if (hours < 10) {
-    //     hours = `0${hours}`
-    // }
+
+    if (minutes < 10) {
+        minutesDisplay.innerText = '0' + minutes
+    }
 
     hoursDisplay.innerText = hours
-    minutesDisplay.innerText = minutes
 }
 
 export default timer

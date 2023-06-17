@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#root {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.timerDisplay {
+    color: black;
+    background-color: rgb(184, 212, 238);
+    border: solid black;
+    border-radius: 20%;
+}
+
+.title {
+    color: rgb(184, 212, 238);
+}
+
+button {
+    border-radius: 30%;
+    padding: 0.5rem;
+    margin: 2px;
+}
